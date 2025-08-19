@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
   private PostController controller;
+  private AnnotationConfigApplicationContext context;
 
   @Override
   public void init() {
-    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-    this.controller = context.getBean(PostController.class);
+  context = new AnnotationConfigApplicationContext("ru.netology");
+        this.controller = context.getBean(PostController.class);
   }
 
   @Override
